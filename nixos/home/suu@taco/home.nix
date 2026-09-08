@@ -53,6 +53,7 @@
     ../suu/programs/wakatime
     ../suu/programs/yazi
     ../suu/programs/yq
+    ../suu/programs/zcode
     ../suu/programs/zen-browser
     ../suu/programs/zoxide
 

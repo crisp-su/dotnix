@@ -105,6 +105,7 @@
         ./flake/library.nix
 
         ./flake/packages/wallpapers.nix
+        ./flake/packages/zcode.nix
 
         ./flake/dotnix.nix
 
