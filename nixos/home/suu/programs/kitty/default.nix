@@ -25,9 +25,9 @@ lib.mkMerge [
 
         tab_bar_style = "powerline";
 
-        cursor_trail = 1;
-        cursor_trail_decay = "0.18 0.20";
-        cursor_trail_start_threshold = 24;
+        # cursor_trail = 1;
+        # cursor_trail_decay = "0.18 0.20";
+        # cursor_trail_start_threshold = 24;
 
         font_size = 10.0;
         disable_ligatures = "cursor";
