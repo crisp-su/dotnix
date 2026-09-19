@@ -26,6 +26,8 @@ in
       allowUnfree = lib.mkDefault true;
     };
 
+    hardware.enableAllFirmware = lib.mkDefault true;
+
     boot.loader = {
       efi = {
         canTouchEfiVariables = lib.mkDefault true;
