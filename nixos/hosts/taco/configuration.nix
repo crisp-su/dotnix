@@ -9,8 +9,9 @@
     ./stylix
     # ./fonts
 
-    ./hardware/trackpoint
+    ./hardware/graphics
     ./hardware/bluetooth
+    ./hardware/trackpoint
 
     ./security/ssh
 
