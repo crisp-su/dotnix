@@ -10,7 +10,7 @@ lib.mkMerge [
       enable = true;
 
       settings = {
-        default-key = "18D6A9F0636C87CEE363E647D220DCA09C867D9A";
+        default-key = "38E2F1CFF70F668D24312B33CC5F4B00AB3FF84B";
       };
     };
   }
