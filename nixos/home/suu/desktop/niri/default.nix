@@ -107,7 +107,7 @@ lib.mkMerge [
         };
 
         overview = {
-          zoom = 0.5;
+          zoom = 0.25;
           workspace-shadow.enable = false;
         };
 
