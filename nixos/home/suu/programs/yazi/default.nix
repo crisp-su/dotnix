@@ -31,7 +31,7 @@ lib.mkMerge [
     };
   }
 
-  (lib.mkIf (options ? stylix) {
+  (lib.optionalAttrs (options ? stylix) {
     stylix.targets.yazi.enable = lib.mkDefault true;
   })
 

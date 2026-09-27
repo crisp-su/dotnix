@@ -12,7 +12,7 @@ lib.mkMerge [
     };
   }
 
-  (lib.mkIf (options ? stylix) {
+  (lib.optionalAttrs (options ? stylix) {
     stylix.targets.fzf.enable = lib.mkDefault true;
   })
 

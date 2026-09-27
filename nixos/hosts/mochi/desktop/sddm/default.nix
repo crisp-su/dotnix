@@ -34,7 +34,7 @@ lib.mkMerge [
     }
   )
 
-  (lib.mkIf (options.environment ? persistence) {
+  (lib.optionalAttrs (options.environment ? persistence) {
     environment.persistence."/persist" = {
       files = [
         "/var/lib/sddm/state.conf"

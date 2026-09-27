@@ -67,7 +67,7 @@ lib.mkMerge [
       };
   }
 
-  (lib.mkIf (options.home ? persistence) {
+  (lib.optionalAttrs (options.home ? persistence) {
     home.persistence."/persist" = {
       directories = [
         ".local/share/fish"
@@ -75,7 +75,7 @@ lib.mkMerge [
     };
   })
 
-  (lib.mkIf (options ? stylix) {
+  (lib.optionalAttrs (options ? stylix) {
     stylix.targets.fish.enable = lib.mkDefault true;
   })
 

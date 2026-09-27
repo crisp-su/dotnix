@@ -11,7 +11,7 @@ lib.mkMerge [
     };
   }
 
-  (lib.mkIf (options ? stylix) {
+  (lib.optionalAttrs (options ? stylix) {
     stylix.targets.kde.enable = false;
   })
 ]

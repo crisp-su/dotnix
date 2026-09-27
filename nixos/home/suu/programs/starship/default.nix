@@ -14,7 +14,7 @@ lib.mkMerge [
     };
   }
 
-  (lib.mkIf (options ? stylix) {
+  (lib.optionalAttrs (options ? stylix) {
     stylix.targets.starship.enable = lib.mkDefault true;
   })
 

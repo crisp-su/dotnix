@@ -41,7 +41,7 @@ in
         );
       }
 
-      (lib.mkIf (options.environment ? persistence) {
+      (lib.optionalAttrs (options.environment ? persistence) {
         environment.persistence."/persist" = {
           directories = [
             "/var/lib/docker"

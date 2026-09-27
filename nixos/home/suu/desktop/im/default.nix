@@ -80,7 +80,7 @@ lib.mkMerge [
     }
   )
 
-  (lib.mkIf (options.home ? persistence) {
+  (lib.optionalAttrs (options.home ? persistence) {
     home.persistence."/persist" = {
       directories = [
         ".local/share/fcitx5"
@@ -88,7 +88,7 @@ lib.mkMerge [
     };
   })
 
-  (lib.mkIf (options ? stylix) {
+  (lib.optionalAttrs (options ? stylix) {
     stylix.targets.fcitx5.enable = lib.mkDefault true;
   })
 ]

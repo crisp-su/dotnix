@@ -16,7 +16,7 @@ lib.mkMerge [
     };
   }
 
-  (lib.mkIf (options.home ? persistence) {
+  (lib.optionalAttrs (options.home ? persistence) {
     home.persistence."/persist" = {
       directories = [
         ".local/share/direnv"

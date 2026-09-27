@@ -10,7 +10,7 @@ lib.mkMerge [
     home.packages = [ dotnix.pkgs.zcode ];
   }
 
-  (lib.mkIf (options.home ? persistence) {
+  (lib.optionalAttrs (options.home ? persistence) {
     home.persistence."/persist" = {
       directories = [
         ".zcode"
