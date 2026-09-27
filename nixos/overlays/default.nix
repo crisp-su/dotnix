@@ -1,5 +1,4 @@
 {
-  dotnix,
   inputs,
   lib,
   self,
@@ -7,7 +6,9 @@
 }:
 
 let
-  overlayFiles = dotnix.lib.utils.listNixFilesRecursiveWithExecludes ./. [ ./default.nix ];
+  overlayFiles = builtins.filter (f: f != ./default.nix && lib.hasSuffix ".nix" (toString f)) (
+    lib.filesystem.listFilesRecursive ./.
+  );
 
   loadOverlay =
     file:

@@ -99,28 +99,73 @@
 
       imports = [
         inputs.home-manager.flakeModules.home-manager
-
-        ./flake/shell.nix
-
-        ./flake/library.nix
-
-        ./flake/packages/wallpapers.nix
-        ./flake/packages/zcode.nix
-
-        ./flake/dotnix.nix
-
-        ./flake/nixos/overlays.nix
-
-        ./flake/nixos/options/system.nix
-        ./flake/nixos/options/home.nix
-
-        ./flake/nixos/hosts/mochi.nix
-        ./flake/nixos/hosts/taco.nix
-        ./flake/nixos/hosts/vps-rainyun-gofer.nix
-
-        ./flake/nixos/deploy.nix
       ];
 
-      debug = true;
+      perSystem =
+        {
+          self',
+          inputs',
+          pkgs,
+          ...
+        }:
+        {
+          legacyPackages = {
+            lib = import ./library {
+              inherit pkgs;
+              inherit (pkgs) lib;
+            };
+
+            dotnix = {
+              inherit (self'.legacyPackages) lib;
+              pkgs = self'.packages;
+            };
+          };
+
+          packages = {
+            wallpapers = import ./packages/wallpapers/package.nix {
+              inherit pkgs;
+              inherit (pkgs) lib;
+            };
+
+            zcode = pkgs.callPackage ./packages/zcode/package.nix { };
+          };
+
+          devShells.default = import ./shell.nix {
+            inherit inputs' pkgs;
+          };
+        };
+
+      flake = {
+        overlays = import (self + /nixos/overlays) {
+          inherit inputs self;
+          inherit (inputs.nixpkgs) lib;
+        };
+
+        nixosOverlays =
+          { lib, ... }:
+          {
+            nixpkgs.overlays = lib.mkBefore [ self.overlays.default ];
+          };
+
+        nixosOptions = import (self + /nixos/options/system);
+
+        nixosConfigurations = {
+          mochi = import (self + /nixos/hosts/mochi/system.nix) { inherit self inputs; };
+          taco = import (self + /nixos/hosts/taco/system.nix) { inherit self inputs; };
+          vps-rainyun-gofer = import (self + /nixos/hosts/vps-rainyun-gofer/system.nix) {
+            inherit self inputs;
+          };
+        };
+
+        homeOverlays =
+          { lib, ... }:
+          {
+            nixpkgs.overlays = lib.mkBefore [ self.overlays.default ];
+          };
+
+        homeOptions = import (self + /nixos/options/home);
+
+        deploy = import (self + /nixos/deploy.nix) { inherit inputs self; };
+      };
     };
 }
