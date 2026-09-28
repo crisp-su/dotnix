@@ -21,6 +21,7 @@
     ../suu/desktop/im
 
     ../suu/programs/bat
+    ../suu/programs/bruno
     ../suu/programs/copyq
     ../suu/programs/dasel
     ../suu/programs/devenv
