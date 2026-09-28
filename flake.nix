@@ -141,12 +141,6 @@
           inherit (inputs.nixpkgs) lib;
         };
 
-        nixosOverlays =
-          { lib, ... }:
-          {
-            nixpkgs.overlays = lib.mkBefore [ self.overlays.default ];
-          };
-
         nixosOptions = import (self + /nixos/options/system);
 
         nixosConfigurations = {
@@ -156,12 +150,6 @@
             inherit self inputs;
           };
         };
-
-        homeOverlays =
-          { lib, ... }:
-          {
-            nixpkgs.overlays = lib.mkBefore [ self.overlays.default ];
-          };
 
         homeOptions = import (self + /nixos/options/home);
 

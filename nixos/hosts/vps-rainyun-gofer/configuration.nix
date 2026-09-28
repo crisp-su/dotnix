@@ -3,6 +3,7 @@
 
   imports = [
     ./hardware-configuration.nix
+    ./nixpkgs.nix
     ./users.nix
     ./network.nix
 

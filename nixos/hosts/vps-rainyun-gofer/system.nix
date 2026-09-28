@@ -9,7 +9,6 @@ inputs.nixpkgs.lib.nixosSystem {
   };
 
   modules = [
-    self.nixosOverlays
     self.nixosOptions
 
     inputs.disko.nixosModules.default

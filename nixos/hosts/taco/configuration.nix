@@ -3,11 +3,11 @@
 
   imports = [
     ./hardware-configuration.nix
-    ./users.nix
+    ./nixpkgs.nix
     ./packages.nix
+    ./users.nix
     ./impermanence.nix
     ./stylix
-    # ./fonts
 
     ./hardware/graphics
     ./hardware/bluetooth
