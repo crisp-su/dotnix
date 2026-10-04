@@ -48,6 +48,7 @@
     ../suu/programs/ripgrep
     ../suu/programs/spotify
     ../suu/programs/starship
+    ../suu/programs/steam
     ../suu/programs/tealdeer
     ../suu/programs/telegram
     ../suu/programs/veracrypt

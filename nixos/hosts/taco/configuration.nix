@@ -25,6 +25,8 @@
 
     ./programs/fish
     ./programs/gnupg
+    ./programs/steam
+    ./programs/gamemode
   ];
 
   dotnix.templates.general-laptop.enable = true;

@@ -1,11 +1,7 @@
-{ lib, ... }:
+{
+  hardware.bluetooth = {
+    enable = true;
 
-lib.mkMerge [
-  {
-    hardware.bluetooth = {
-      enable = true;
-
-      powerOnBoot = true;
-    };
-  }
-]
+    powerOnBoot = true;
+  };
+}
