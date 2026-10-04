@@ -14,6 +14,8 @@ lib.mkMerge [
 
     programs.niri = {
       settings = {
+        xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite-unstable;
+
         spawn-at-startup = [
           (lib.mkIf ((options.programs ? noctalia-shell) && config.programs.noctalia-shell.enable) {
             command = [ "noctalia-shell" ];
