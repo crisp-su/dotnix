@@ -166,6 +166,22 @@ lib.mkMerge [
               bottom-left = 10.00;
             };
           }
+
+          {
+            matches = [
+              { app-id = "^steam$"; }
+            ];
+
+            open-maximized = true;
+          }
+
+          {
+            matches = [
+              { app-id = "^(Stardew Valley)|(StardewModdingAPI)$"; }
+            ];
+
+            open-maximized = true;
+          }
         ];
 
         binds = lib.mkMerge [
