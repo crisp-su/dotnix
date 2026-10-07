@@ -63,7 +63,7 @@ lib.mkMerge [
             mode = {
               width = 3840;
               height = 2160;
-              refresh = 60.;
+              refresh = 60.00;
             };
             scale = 1.666667;
           };
@@ -77,12 +77,12 @@ lib.mkMerge [
           empty-workspace-above-first = true;
 
           default-column-width = {
-            proportion = 1. / 3.;
+            proportion = 1. / 3.00;
           };
           preset-column-widths = [
-            { proportion = 1. / 3.; }
-            { proportion = 2. / 3.; }
-            { proportion = 1. / 2.; }
+            { proportion = 1. / 3.00; }
+            { proportion = 2. / 3.00; }
+            { proportion = 1. / 2.00; }
           ];
 
           struts = {
@@ -104,7 +104,7 @@ lib.mkMerge [
           };
 
           shadow = {
-            enable = true;
+            enable = false;
           };
         };
 
@@ -129,10 +129,14 @@ lib.mkMerge [
             clip-to-geometry = true;
 
             geometry-corner-radius = {
-              top-left = 12.;
-              top-right = 12.;
-              bottom-right = 12.;
-              bottom-left = 12.;
+              top-left = 12.00;
+              top-right = 12.00;
+              bottom-right = 12.00;
+              bottom-left = 12.00;
+            };
+
+            shadow = {
+              enable = false;
             };
           }
 
@@ -156,10 +160,10 @@ lib.mkMerge [
             };
 
             geometry-corner-radius = {
-              top-left = 10.;
-              top-right = 10.;
-              bottom-right = 10.;
-              bottom-left = 10.;
+              top-left = 10.00;
+              top-right = 10.00;
+              bottom-right = 10.00;
+              bottom-left = 10.00;
             };
           }
         ];

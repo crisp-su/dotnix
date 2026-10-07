@@ -6,6 +6,8 @@
       bar = {
         position = "bottom";
 
+        outerCorners = false;
+
         widgets = {
           left = [
             {
