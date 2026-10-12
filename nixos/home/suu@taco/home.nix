@@ -45,6 +45,7 @@
     ../suu/programs/opencode
     ../suu/programs/ouch
     ../suu/programs/procs
+    ../suu/programs/qimgv
     ../suu/programs/ripgrep
     ../suu/programs/spotify
     ../suu/programs/starship

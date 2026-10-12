@@ -169,6 +169,26 @@ lib.mkMerge [
 
           {
             matches = [
+              { app-id = "^qimgv$"; }
+            ];
+
+            open-floating = true;
+          }
+
+          {
+            matches = [
+              {
+                app-id = "^qimgv$";
+                title = "^Folder view$";
+              }
+            ];
+
+            default-column-width.fixed = 1200;
+            default-window-height.fixed = 700;
+          }
+
+          {
+            matches = [
               { app-id = "^steam$"; }
             ];
 

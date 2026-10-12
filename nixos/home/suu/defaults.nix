@@ -38,10 +38,24 @@
         defaultEditor = [
           (lib.mkIf (config.programs.neovim.enable || config.programs.dotnvim.enable or false) "nvim.desktop")
         ];
+
+        defaultImageViewer = [
+          (lib.mkIf config.dotnix.programs.qimgv.enable "qimgv.desktop")
+        ];
       in
       {
         "text/plain" = defaultEditor;
         "text/markdown" = defaultEditor;
+
+        "image/avif" = defaultImageViewer;
+        "image/bmp" = defaultImageViewer;
+        "image/gif" = defaultImageViewer;
+        "image/jpeg" = defaultImageViewer;
+        "image/jxl" = defaultImageViewer;
+        "image/png" = defaultImageViewer;
+        "image/svg+xml" = defaultImageViewer;
+        "image/tiff" = defaultImageViewer;
+        "image/webp" = defaultImageViewer;
       };
   };
 
