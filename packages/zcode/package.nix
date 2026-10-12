@@ -17,7 +17,7 @@ in
 appimageTools.wrapType2 {
   inherit pname version src;
 
-  extraInstallCommands = ''
+  extraInstallCommands = /* bash */ ''
     install -Dm444 ${appimageContents}/zcode.desktop -t $out/share/applications/
     install -Dm444 ${appimageContents}/usr/share/icons/hicolor/512x512/apps/zcode.png -t $out/share/icons/hicolor/512x512/apps/
     substituteInPlace $out/share/applications/zcode.desktop --replace-fail 'Exec=AppRun --no-sandbox %U' 'Exec=zcode --no-sandbox %U'

@@ -11,7 +11,7 @@
   sops.templates."wakatime.cfg" = {
     path = "${config.home.homeDirectory}/.wakatime.cfg";
     mode = "0600";
-    content = ''
+    content = /* ini */ ''
       [settings]
       api_key = ${config.sops.placeholder.wakatime_api_key}
     '';

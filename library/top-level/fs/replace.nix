@@ -7,7 +7,7 @@
       src,
       vars,
     }:
-    pkgs.runCommand name (vars // { inherit src; }) ''
+    pkgs.runCommand name (vars // { inherit src; }) /* bash */ ''
       cp -r "$src" "$out"
       chmod -R +w "$out"
 

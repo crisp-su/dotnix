@@ -43,7 +43,7 @@ pkgs.stdenv.mkDerivation (
       cp $src/metadata.json $out/share/wallpapers/metadata.json
       #
       ${lib.concatStringsSep "\n" (
-        lib.mapAttrsToList (name: w: ''
+        lib.mapAttrsToList (name: w: /* bash */ ''
           ln -s ${w.file} $out/share/wallpapers/${w.file.name}
         '') wallpaperFiles
       )}
