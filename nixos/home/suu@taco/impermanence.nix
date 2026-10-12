@@ -24,10 +24,14 @@
 
       ".local/state/nix/profiles"
       ".local/state/wireplumber"
+
+      ".claude"
     ];
 
     files = [
       ".config/sops-nix/age-key.txt"
+
+      ".claude.json"
     ];
   };
 }
