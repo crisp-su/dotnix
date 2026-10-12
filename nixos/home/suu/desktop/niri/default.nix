@@ -77,12 +77,12 @@ lib.mkMerge [
           empty-workspace-above-first = true;
 
           default-column-width = {
-            proportion = 1. / 3.00;
+            proportion = 1.00 / 3.00;
           };
           preset-column-widths = [
-            { proportion = 1. / 3.00; }
-            { proportion = 2. / 3.00; }
-            { proportion = 1. / 2.00; }
+            { proportion = 1.00 / 3.00; }
+            { proportion = 2.00 / 3.00; }
+            { proportion = 1.00 / 2.00; }
           ];
 
           struts = {
