@@ -167,6 +167,30 @@ lib.mkMerge [
             };
           }
 
+          (lib.mkIf config.programs.yazi.enable {
+            matches = [
+              { app-id = "^(yazi)|(termfilechooser)$"; }
+            ];
+
+            open-floating = true;
+
+            default-column-width.fixed = 900;
+            default-window-height.fixed = 500;
+
+            default-floating-position = {
+              relative-to = "top-left";
+              x = 30;
+              y = 30;
+            };
+
+            geometry-corner-radius = {
+              top-left = 10.00;
+              top-right = 10.00;
+              bottom-right = 10.00;
+              bottom-left = 10.00;
+            };
+          })
+
           {
             matches = [
               { app-id = "^qimgv$"; }
@@ -211,6 +235,10 @@ lib.mkMerge [
 
           (lib.mkIf config.dotnix.programs.copyq.enable {
             "Mod+P".action.spawn-sh = "copyq toggle";
+          })
+
+          (lib.mkIf (config.programs.kitty.enable && config.programs.yazi.enable) {
+            "Mod+E".action.spawn-sh = "kitty --app-id=yazi yazi";
           })
 
           {
