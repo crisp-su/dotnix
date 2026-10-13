@@ -136,22 +136,22 @@
         };
 
       flake = {
-        overlays = import (self + /nixos/overlays) {
+        overlays = import (self + /overlays) {
           inherit inputs self;
           inherit (inputs.nixpkgs) lib;
         };
 
-        nixosOptions = import (self + /nixos/options/system);
+        nixosOptions = import (self + /nixos/options);
 
         nixosConfigurations = {
-          mochi = import (self + /nixos/hosts/mochi/system.nix) { inherit self inputs; };
-          taco = import (self + /nixos/hosts/taco/system.nix) { inherit self inputs; };
-          vps-rainyun-gofer = import (self + /nixos/hosts/vps-rainyun-gofer/system.nix) {
+          mochi = import (self + /nixos/config/mochi/system.nix) { inherit self inputs; };
+          taco = import (self + /nixos/config/taco/system.nix) { inherit self inputs; };
+          vps-rainyun-gofer = import (self + /nixos/config/vps-rainyun-gofer/system.nix) {
             inherit self inputs;
           };
         };
 
-        homeOptions = import (self + /nixos/options/home);
+        homeOptions = import (self + /home/options);
 
         deploy = import (self + /nixos/deploy.nix) { inherit inputs self; };
       };

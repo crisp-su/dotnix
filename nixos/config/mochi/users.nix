@@ -13,7 +13,6 @@
       hashedPasswordFile = config.sops.secrets.hashed_user_password_root.path;
 
       openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM7KXjvl2CYXIwSSwWuKdEATVKuUTamUGrHCqdaqsDuy suu@taco"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO1VYnTNTHyO/UFEDulmINIKe8UOy0pFFHWGXbe9w479 suu@mochi"
       ];
     };
@@ -32,18 +31,18 @@
       shell = pkgs.fish;
 
       openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM7KXjvl2CYXIwSSwWuKdEATVKuUTamUGrHCqdaqsDuy suu@taco"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO1VYnTNTHyO/UFEDulmINIKe8UOy0pFFHWGXbe9w479 suu@mochi"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM7KXjvl2CYXIwSSwWuKdEATVKuUTamUGrHCqdaqsDuy suu@taco"
       ];
     };
   };
 
   home-manager.users =
     let
-      byUserHost = id: self + "/nixos/home/${id}/home.nix";
+      byUserHost = id: self + "/home/config/${id}/home.nix";
     in
     {
-      suu = byUserHost "suu@taco";
+      suu = byUserHost "suu@mochi";
     };
 
   sops.secrets = {
