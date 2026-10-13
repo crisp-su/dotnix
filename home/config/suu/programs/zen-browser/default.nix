@@ -17,7 +17,7 @@ lib.mkMerge [
     };
   })
 
-  {
+  (lib.optionalAttrs (options ? stylix) {
     stylix.targets.zen-browser.enable = false;
-  }
+  })
 ]

@@ -1,32 +1,36 @@
-{
-  # Impermanence Home Manager paths are namespaced under home.homeDirectory automatically.
-  home.persistence."/persist" = {
-    directories = [
-      "Desktop"
-      "Documents"
-      "Downloads"
-      "Music"
-      "Pictures"
-      "Public"
-      "Templates"
-      "Videos"
+{ options, lib, ... }:
 
-      # ".config"
-      # ".local/share"
-      # ".local/state"
+lib.mkMerge [
+  (lib.optionalAttrs (options.home ? persistence) {
+    # Impermanence Home Manager paths are namespaced under home.homeDirectory automatically.
+    home.persistence."/persist" = {
+      directories = [
+        "Desktop"
+        "Documents"
+        "Downloads"
+        "Music"
+        "Pictures"
+        "Public"
+        "Templates"
+        "Videos"
 
-      {
-        directory = ".ssh";
-        mode = "0700";
-      }
+        # ".config"
+        # ".local/share"
+        # ".local/state"
 
-      "data"
+        {
+          directory = ".ssh";
+          mode = "0700";
+        }
 
-      ".local/state/nix/profiles"
-    ];
+        "data"
 
-    files = [
-      ".config/sops-nix/age-key.txt"
-    ];
-  };
-}
+        ".local/state/nix/profiles"
+      ];
+
+      files = [
+        ".config/sops-nix/age-key.txt"
+      ];
+    };
+  })
+]

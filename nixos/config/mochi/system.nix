@@ -48,10 +48,8 @@ inputs.nixpkgs.lib.nixosSystem (
             inputs.dotnvim.homeModules.default
             inputs.zen-browser.homeModules.default
 
-            # NOTE: These modules are automatically imported by the corresponding system configuration.
-            # inputs.impermanence.homeModules.default
-            # inputs.stylix.homeModules.default
-            # inputs.niri.homeModules.niri
+            # NOTE: Impermanence, stylix, and niri Home Manager modules are
+            # automatically imported by the corresponding NixOS modules.
           ];
 
           # `home-manager.users` defined in ./users.nix

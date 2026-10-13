@@ -39,7 +39,7 @@
 
   home-manager.users =
     let
-      byUserHost = id: self + "/home/config/${id}/home.nix";
+      byUserHost = id: self + "/home/config/${id}/configuration.nix";
     in
     {
       suu = byUserHost "suu@mochi";

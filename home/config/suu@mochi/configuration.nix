@@ -1,8 +1,11 @@
-{ osConfig, ... }:
+{
+  osConfig ? null,
+  ...
+}:
 
 {
-  home.username = osConfig.users.users.suu.name;
-  home.homeDirectory = osConfig.users.users.suu.home;
+  home.username = if osConfig != null then osConfig.users.users.suu.name else "suu";
+  home.homeDirectory = if osConfig != null then osConfig.users.users.suu.home else "/home/suu";
 
   imports = [
     ../suu/base
@@ -12,6 +15,8 @@
     ../suu/stylix
     ../suu/catppuccin.nix
     ../suu/wallpapers.nix
+
+    ../suu/security/ssh
 
     ../suu/desktop/plasma
     ../suu/desktop/gtk
@@ -61,8 +66,6 @@
     ./settings.nix
 
     ./impermanence.nix
-
-    ./security/ssh
   ];
 
   dotnix.configurations = {

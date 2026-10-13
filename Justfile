@@ -14,16 +14,11 @@ _:
 
 # Build target's home-manager activation package
 hm-build target *nixargs:
-  #!/usr/bin/env bash
-  IFS="@" read -r USER HOST <<<"{{target}}"
-
-  nix build .#nixosConfigurations.$HOST.config.home-manager.users.$USER.home.activationPackage
+  nix build .#homeConfigurations."{{target}}".activationPackage {{nixargs}}
 
 # Enter a nix shell with target's home-manager environment
 hm-shell target *nixargs: (hm-build target nixargs)
   #!/usr/bin/env bash
-
-  IFS="@" read -r USER HOST <<<"{{target}}"
 
   HM_RESULT="$(readlink -f "$(pwd)"/result)"
 
@@ -41,7 +36,7 @@ hm-shell target *nixargs: (hm-build target nixargs)
       pkgs = import <nixpkgs> {};
     in
     pkgs.mkShell {
-      packages = [ self.nixosConfigurations.$_HOST.config.home-manager.users.$_USER.home.path ];
+      packages = [ self.homeConfigurations."$_TARGET".config.home.path ];
       shellHook = ''
         export PATH="$_HM_RESULT/home-path/bin:$PATH"
         export HOME="$_HM_TMP_HOME"
@@ -55,8 +50,7 @@ hm-shell target *nixargs: (hm-build target nixargs)
     }
   EOF
 
-  NIX_EXPR="${NIX_EXPR//\$_HOST/$HOST}"
-  NIX_EXPR="${NIX_EXPR//\$_USER/$USER}"
+  NIX_EXPR="${NIX_EXPR//\$_TARGET/{{target}}}"
   NIX_EXPR="${NIX_EXPR//\$_HM_RESULT/$HM_RESULT}"
   NIX_EXPR="${NIX_EXPR//\$_HM_TMP_HOME/$HM_TMP_HOME}"
 

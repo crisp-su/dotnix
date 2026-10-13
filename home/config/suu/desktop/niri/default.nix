@@ -487,7 +487,7 @@ lib.mkMerge [
       '';
   })
 
-  (lib.optionalAttrs (options ? stylix) {
+  (lib.optionalAttrs (options.stylix.targets ? niri) {
     stylix.targets.niri.enable = false;
   })
 ]

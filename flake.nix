@@ -153,6 +153,17 @@
 
         homeOptions = import (self + /home/options);
 
+        homeConfigurations = {
+          "suu@_portable-x86_64-linux" = import (self + "/home/config/suu@_portable/home.nix") {
+            inherit self inputs;
+            system = "x86_64-linux";
+          };
+          "suu@_portable-aarch64-linux" = import (self + "/home/config/suu@_portable/home.nix") {
+            inherit self inputs;
+            system = "aarch64-linux";
+          };
+        };
+
         deploy = import (self + /nixos/deploy.nix) { inherit inputs self; };
       };
     };
