@@ -48,6 +48,8 @@ in
     };
 
     environment.systemPackages = with pkgs; [
+      python3
+
       curl
       wget
       rsync
