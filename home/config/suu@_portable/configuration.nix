@@ -42,6 +42,7 @@
     ../suu/programs/kitty
     ../suu/programs/lazygit
     ../suu/programs/matugen
+    ../suu/programs/mosh
     ../suu/programs/opencode
     ../suu/programs/ouch
     ../suu/programs/procs
